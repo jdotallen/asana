@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) throws IOException, URISyntaxException{
 		
         // create an OAuth client with the app
-        Client client = Client.basicAuth("0/565bdbbac039b153dbd778c33310b153");
+        Client client = Client.basicAuth(System.getenv("ASANA_API_KEY"));
         
         Workspace accenture = null;
         for (Workspace workspace : client.workspaces.findAll()) {
