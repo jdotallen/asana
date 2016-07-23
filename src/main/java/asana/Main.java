@@ -156,7 +156,7 @@ public class Main {
 		HttpResponse<JsonNode> jsonResponseCreate = Unirest.post("https://slack.com/api/channels.create")
 		  .header("accept", "application/json")
 //		  .queryString("apiKey", "123")
-		  .field("token", "xoxp-2403598953-2403598955-61889181778-29dbbae262")
+		  .field("token", System.getenv("SLACK_API_KEY"))
 		  .field("name", "bsr" + bsrName.substring(4, 8))
 		  .asJson();
 //		HttpResponse<JsonNode> jsonResponse = Unirest.post("https://slack.com/api/channels.info")
@@ -171,7 +171,7 @@ public class Main {
 		HttpResponse<JsonNode> jsonResponseTopic = Unirest.post("https://slack.com/api/channels.setTopic")
 				  .header("accept", "application/json")
 //				  .queryString("apiKey", "123")
-				  .field("token", "xoxp-2403598953-2403598955-61889181778-29dbbae262")
+				  .field("token", System.getenv("SLACK_API_KEY"))
 				  .field("channel", id)
 				  .field("topic", "https://app.asana.com/0/" + bsrsProject.id + "/" + bsr.id)
 				  .asJson();
